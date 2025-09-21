@@ -1,26 +1,17 @@
-const exp=require("express")
-const app=exp();
-const mongoose=require("mongoose")
-mongoose.connect("mongodb+srv://diyasarkar158:diya158@cluster0.hqon8oj.mongodb.net/mern56?retryWrites=true&w=majority&appName=Cluster0")
-const cors=require("cors")
-const bodyParser=require("body-parser")
-const ef=require("express-fileupload")
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
 
-app.use(cors());
-app.use(ef());
-app.use(bodyParser.urlencoded())
-app.use(bodyParser.json())
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
 
-app.use(exp.static('public'))
-
-app.get("/",(req,res)=>{
-    res.send("Hello Mern55 Node");
-});
-
-const pr=require("./routes/product_r");
-app.use("/product",pr);
-
-const ar=require("./routes/admin");
-app.use("/admin",ar);
-
-app.listen(2000)
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();

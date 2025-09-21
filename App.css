@@ -1,0 +1,277 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #fbe1d5;
+    padding: 0;
+    overflow-x: hidden;
+
+}
+
+.slick-slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.slick-prev:before,
+.slick-next:before {
+    color: black;
+    /* arrow color */
+    font-size: 30px;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff;
+}
+
+.logo {
+    width: 50px;
+    height: 200px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #aa3f1c;
+    /* Green */
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+nav ul button {
+    background-color: #fbd4a0;
+    border-radius: 5px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333333;
+}
+
+/* Search bar */
+.search {
+    text-align: center;
+    padding: 10px;
+}
+
+.search input {
+    width: 80%;
+    max-width: 600px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+}
+
+/* Hero section */
+.hero {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.hero img {
+    width: 100%;
+    height: auto;
+}
+
+.hero .quote {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    /* Adjusted for visibility */
+}
+
+/* Sections */
+section {
+    padding: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filters button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.filters button:hover {
+    background-color: #ddd;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* exactly 3 per row */
+    gap: 30px;
+    /* space between boxes */
+    justify-items: center;
+}
+
+.product {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 15px;
+    width: 320px;
+    /* bigger box */
+}
+
+.product img {
+    width: 100%;
+    height: 320px;
+    /* taller image */
+    object-fit: cover;
+}
+
+.product h3 {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #ab47bc;
+    /* Purple */
+}
+
+.product p {
+    margin: 5px 0;
+}
+
+.product .price {
+    font-weight: bold;
+    color: #000000;
+    /* Green */
+}
+
+.product .rating {
+    color: #ff9800;
+    /* Orange for ratings */
+}
+
+.product .eco {
+    color: #e49e24;
+}
+
+.product-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.product-buttons button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.product-buttons .contact {
+    background-color: #4caf50;
+    /* Purple */
+    color: white;
+}
+
+.product-buttons .add {
+    background-color: #ee9b17;
+    /* Green */
+    color: white;
+}
+
+/* Footer icons */
+.footer-icons {
+    text-align: center;
+    padding: 20px;
+    color: #098d00;
+}
+
+.footer-icons div {
+    display: inline-block;
+    margin: 0 20px;
+    font-size: 24px;
+}
+
+/* Footer */
+footer {
+    background-color: #8d3b00;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+footer .logo {
+    color: white;
+    font-size: 28px;
+    text-align: center;
+    width: auto;
+    height: auto;
+    line-height: normal;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+footer ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+footer ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+footer .social {
+    margin: 10px 0;
+}
+
+footer .social span {
+    margin: 0 10px;
+    font-size: 20px;
+}
+
+footer .newsletter {
+    margin: 10px 0;
+}
+
+footer .newsletter button {
+    background-color: white;
+    color: #4caf50;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
