@@ -1,16 +1,18 @@
-import React from "react";
+import { useState } from "react";
+import P1 from "../images/P1.png";
+import P3 from "../images/P3.png";
 import logo from "../images/ShilpoKotha-removebg-preview.png";
-import login from "../images/login_craft.jpg";
-import SignUp from "./SignUp";
 import { Link } from "react-router-dom";
 
-const CraftMarketLogin = () => {
-  const togglePassword = () => {
-    const passwordInput = document.getElementById("password");
-    if (passwordInput.type === "password") {
-      passwordInput.type = "text";
+export default function SignUp() {
+  const [passwordVisible, setPasswordVisible] = useState(false);
+  const [confirmVisible, setConfirmVisible] = useState(false);
+
+  const togglePassword = (field) => {
+    if (field === "password") {
+      setPasswordVisible(!passwordVisible);
     } else {
-      passwordInput.type = "password";
+      setConfirmVisible(!confirmVisible);
     }
   };
 
@@ -38,17 +40,17 @@ const CraftMarketLogin = () => {
           border-radius: 15px;
           overflow: hidden;
           box-shadow: 0px 4px 20px rgba(0,0,0,0.1);
-          width: 900px;
+          width: 850px;
           max-width: 95%;
         }
 
-        /* Left placeholder section */
+        /* Left side with multiple images */
         .image-section {
           flex: 1;
-          background: #ddd;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          display: grid;
+          grid-template-columns: 1fr ;
+          grid-template-rows: 1fr ;
+          grid-gap: 5px;
         }
 
         .image-section img {
@@ -56,38 +58,44 @@ const CraftMarketLogin = () => {
           height: 100%;
           object-fit: cover;
           display: block;
+          border-radius: 10px;
         }
 
-        /* Right form section */
+        /* Right side form */
         .form-section {
           flex: 1;
-          padding: 60px 80px;
+          padding: 40px;
           display: flex;
           flex-direction: column;
           justify-content: center;
-          align-items: flex-start;
+          background: #fffaf6;
+          position: relative;
         }
 
         .logo {
-          display: flex;
-          align-items: center;
-          justify-content: flex-start;
-          margin-bottom: 30px;
+          text-align: center;
+          margin-bottom: 20px;
           font-size: 24px;
           font-weight: bold;
           color: #8d4a25;
-          width: 100%;
         }
 
         .logo img {
           width: 300px;
-          margin-right: 10px;
+          margin-right : 10px;
+        }
+
+        .form-section h2 {
+          text-align: center;
+          margin-bottom: 25px;
+          font-size: 18px;
+          font-weight: 600;
+          color: #333;
         }
 
         .input-group {
           position: relative;
-          margin-bottom: 20px;
-          width: 100%;
+          margin-bottom: 15px;
         }
 
         .input-group input {
@@ -116,7 +124,7 @@ const CraftMarketLogin = () => {
           color: #8d4a25;
         }
 
-        .login-btn {
+        .signup-btn {
           background: #8d4a25;
           color: white;
           border: none;
@@ -124,60 +132,94 @@ const CraftMarketLogin = () => {
           border-radius: 25px;
           cursor: pointer;
           font-size: 16px;
-          margin-bottom: 15px;
-          width: 100%;
+          margin-top: 10px;
         }
 
         .links {
-          text-align: left;
+          text-align: center;
           font-size: 14px;
-          width: 100%;
+          margin-top: 15px;
         }
 
         .links a {
           text-decoration: none;
           color: #8d4a25;
-          margin: 0 5px;
+          font-weight: bold;
+          margin-left: 5px;
+        }
+
+        .links span {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 10px;
+        }
+
+        .links span i {
+          margin-right: 5px;
         }
       `}</style>
 
       <div className="container">
-        {/* Left placeholder for photo */}
+        {/* Left side image grid */}
         <div className="image-section">
-          <img src={login} alt="Craft Items" />
+          <img src={P1}/>
+          <img src={P3}/>
         </div>
 
-        {/* Right form */}
+        {/* Right side form */}
         <div className="form-section">
           <div className="logo">
-            <img src={logo} alt="Logo" />
+            <img src={logo}/>
           </div>
-          
+          <h2>Create your account</h2>
+
           <div className="input-group">
-            <i>📧</i>
-            <input type="text" placeholder="Username" />
+            <input type="text" placeholder="Full Name" />
           </div>
 
           <div className="input-group">
-            <i>🔒</i>
-            <input type="password" id="password" placeholder="Password" />
-            <span className="toggle-password" onClick={togglePassword}>
+            <input type="email" placeholder="Email" />
+          </div>
+
+          <div className="input-group">
+            <input
+              type={passwordVisible ? "text" : "password"}
+              id="password"
+              placeholder="Password"
+            />
+            <span
+              className="toggle-password"
+              onClick={() => togglePassword("password")}
+            >
               👁
             </span>
           </div>
 
-          <button className="login-btn">Log In</button>
+          <div className="input-group">
+            <input
+              type={confirmVisible ? "text" : "password"}
+              id="confirm-password"
+              placeholder="Confirm Password"
+            />
+            <span
+              className="toggle-password"
+              onClick={() => togglePassword("confirm")}
+            >
+              👁
+            </span>
+          </div>
+
+          <button className="signup-btn">Sign Up</button>
 
           <div className="links">
-            <a href="#">Forgot Password?</a>
-            <br />
-            <br />
-            <span>Don’t have an account?</span> <Link to="/SignUp">Sign Up</Link>
+            <span>
+              <i></i> Already have you account?
+            </span>
+            <Link to="/Login">Log In</Link>
           </div>
         </div>
       </div>
     </div>
   );
-};
-
-export default CraftMarketLogin;
+}
